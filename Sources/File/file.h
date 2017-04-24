@@ -3,17 +3,20 @@
 
 /* Helpers */
 
-typedef struct  data_s {
+typedef struct  data_s
+{
   int           foo;
 }               data_t;
 
-typedef struct              file_element_s {
+typedef struct              file_element_s
+{
   data_t                    data;
   struct file_element_s *   next;
   struct file_element_s *   precedent;
 }                           file_element_t;
 
-typedef struct      file_list_s {
+typedef struct      file_list_s
+{
   file_element_t *  first;
   file_element_t *  last;
   int               size;
