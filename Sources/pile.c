@@ -13,7 +13,8 @@ pile_element_t * list_extract(pile_list_t * l);
  * @param   void
  * @return  pile_list_t
  */
-pile_list_t *       pile_create() {
+pile_list_t *       pile_create()
+{
     pile_list_t *   l;
 
     l = malloc(sizeof(l));
@@ -30,7 +31,8 @@ pile_list_t *       pile_create() {
  *          data_t - p
  * @return: void
  */
-void                    pile_stack(pile_list_t * l, data_t p) {
+void                    pile_stack(pile_list_t * l, data_t p)
+{
     pile_element_t *    e;
 
     e = malloc(sizeof(e));
@@ -51,7 +53,8 @@ void                    pile_stack(pile_list_t * l, data_t p) {
  * @param   pile_list_t - l
  * @return  data_t
  */
-data_t                  pile_unstack(pile_list_t * l) {
+data_t                  pile_unstack(pile_list_t * l)
+{
     pile_element_t *    e;
     data_t              d;
 
@@ -67,7 +70,8 @@ data_t                  pile_unstack(pile_list_t * l) {
  * @param   pile_list_t - l
  * @return  void
  */
-void pile_free(pile_list_t * l) {
+void pile_free(pile_list_t * l)
+{
     while (!(l->size == 0)) free(list_extract(l));
     free(l);
 }
@@ -80,7 +84,8 @@ void pile_free(pile_list_t * l) {
  * @param   pile_list_t - l
  * @return  pile_element_t
  */
-pile_element_t *        list_extract(pile_list_t * l) {
+pile_element_t *        list_extract(pile_list_t * l)
+{
     pile_element_t *    e;
 
     e = NULL;
