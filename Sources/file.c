@@ -13,7 +13,8 @@ file_element_t * list_extract(file_list_t * l);
  * @param   void
  * @return  file_list_t
  */
-file_list_t *       file_create() {
+file_list_t *       file_create()
+{
     file_list_t *   l;
 
     l = malloc(sizeof(l));
@@ -30,7 +31,8 @@ file_list_t *       file_create() {
  *          data_t - p
  * @return: void
  */
-void                    file_thread(file_list_t * l, data_t p) {
+void                    file_thread(file_list_t * l, data_t p)
+{
     file_element_t *    e;
 
     e = malloc(sizeof(e));
@@ -67,7 +69,8 @@ data_t                  file_unthread(file_list_t * l) {
  * @param   file_list_t - l
  * @return  void
  */
-void file_free(file_list_t * l) {
+void file_free(file_list_t * l)
+{
     while (!(l->size == 0)) free(list_extract(l));
     free(l);
 }
@@ -80,7 +83,8 @@ void file_free(file_list_t * l) {
  * @param   file_list_t - l
  * @return  file_element_t
  */
-file_element_t *        list_extract(file_list_t * l) {
+file_element_t *        list_extract(file_list_t * l)
+{
     file_element_t *    e;
 
     e = NULL;
