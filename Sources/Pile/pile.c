@@ -86,17 +86,15 @@ void pile_free(pile_list_t * l)
  */
 pile_element_t *        list_extract(pile_list_t * l)
 {
-    pile_element_t *    r;
+    pile_element_t *    e;
 
-    r = NULL;
+    e = NULL;
     if (!(l->size == 0)) {
-        r = l->first;
-        l->first = r->next;
-        r->next = NULL;
+        e = l->first;
+        l->first = e->next;
+        e->next = NULL;
         l->size--;
-        if (l->size == 0) {
-            l->last = NULL;
-        }
+        if (l->size == 0) l->last = NULL;
     }
-    return r;
+    return e;
 }
