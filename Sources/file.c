@@ -17,7 +17,8 @@ t_file_list *       file_create()
 {
     t_file_list *   l;
 
-    l = (t_file_list *) malloc(sizeof(t_file_list));
+    l = 0;
+    if (!(l = (t_file_list *) malloc(sizeof(t_file_list)))) return l;
     l->first = 0;
     l->last = 0;
     l->size = 0;
@@ -35,7 +36,8 @@ void                    file_stack(t_file_list * l, t_file_data p)
 {
     t_file_element *    e;
 
-    e = malloc(sizeof(t_file_element));
+    e = 0;
+    if (!(e = malloc(sizeof(t_file_element)))) return e;
     e->data = p;
     e->next = 0;
     e->precedent = 0;
@@ -71,7 +73,7 @@ t_file_data             file_unstack(t_file_list * l)
  * @param   t_file_list - l
  * @return  void
  */
-void file_free(t_file_list * l)
+inline void file_free(t_file_list * l)
 {
     while (l->size != 0) free(file_list_extract(l));
     free(l);

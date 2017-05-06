@@ -17,7 +17,8 @@ t_pile_list *       pile_create()
 {
     t_pile_list *   l;
 
-    l = (t_pile_list *) malloc(sizeof(t_pile_list));
+    l = 0;
+    if (!(l = (t_pile_list *) malloc(sizeof(t_pile_list)))) return l;
     l->first = 0;
     l->last = 0;
     l->size = 0;
@@ -35,7 +36,8 @@ void                    pile_stack(t_pile_list * l, t_pile_data p)
 {
     t_pile_element *    e;
 
-    e = malloc(sizeof(t_pile_element));
+    e = 0;
+    if (!(e = malloc(sizeof(t_pile_element)))) return e;
     e->data = p;
     e->next = 0;
     e->precedent = 0;
@@ -72,7 +74,7 @@ t_pile_data             pile_unstack(t_pile_list * l)
  * @param   t_pile_list - l
  * @return  void
  */
-void pile_free(t_pile_list * l)
+inline void pile_free(t_pile_list * l)
 {
     while (l->size != 0) free(pile_list_extract(l));
     free(l);
